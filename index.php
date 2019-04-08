@@ -10,6 +10,10 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 $com = substr($content, 274, -55);
 
+$Topic = "mcu1";
+$lineMsg = $com;
+getMqttfromlineMsg($Topic,$lineMsg);
+
 //////////////////////////////ข้อความ Line Notify////////////////////////////////////////
 //notify_message("ทดสอบ",$token);
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -37,8 +41,8 @@ function pubMqtt($topic,$msg){
    $SECRET = "DYBSzwf3Xin9bMVSU2rdSowx0"; 
    $Topic = "$topic"; 
    put("https://api.netpie.io/microgear/".$APPID.$Topic."?retain&auth=".$KEY.":".$SECRET,$msg);
-   
   }
+
  function getMqttfromlineMsg($Topic,$lineMsg){
  
     $pos = strpos($lineMsg, ":");
