@@ -10,7 +10,7 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 $com = substr($content, 274, -55);
 
-$Topic = "mcu1";
+$Topic = "MCU21";
 $lineMsg = $com;
 getMqttfromlineMsg($Topic,$lineMsg);
 
